@@ -36,7 +36,7 @@ class PermissionController extends Controller
     {
         $validated = $request->validate(['name' => 'required']);
         $permission->update($validated);
-        return to_route('admin.permissions.index')->with('message', 'مجوز ویرایش شد..');
+        return to_route('admin.permissions.index')->with('message', 'مجوز ویرایش شد.');
     }
 
     public function destroy(Permission $permission)

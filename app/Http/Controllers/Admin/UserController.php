@@ -28,48 +28,48 @@ class UserController extends Controller
     public function assignRole(Request $request, User $user)
     {
         if ($user->hasRole($request->role)) {
-            return back()->with('message', 'Role exists.');
+            return back()->with('message', 'نقش وجود دارد');
         }
 
         $user->assignRole($request->role);
-        return back()->with('message', 'Role assigned.');
+        return back()->with('message', 'نقش تخصیص یافت');
     }
 
     public function removeRole(User $user, Role $role)
     {
         if ($user->hasRole($role)) {
             $user->removeRole($role);
-            return back()->with('message', 'Role removed.');
+            return back()->with('message', 'نقش حذف شد.');
         }
 
-        return back()->with('message', 'Role not exists.');
+        return back()->with('message', 'نقش وجود ندارد.');
     }
 
     public function givePermission(Request $request, User $user)
     {
         if ($user->hasPermissionTo($request->permission)) {
-            return back()->with('message', 'Permission exists.');
+            return back()->with('message', 'مجوز وجود دارد.');
         }
         $user->givePermissionTo($request->permission);
-        return back()->with('message', 'Permission added.');
+        return back()->with('message', 'مجوز ثبت شد.');
     }
 
     public function revokePermission(User $user, Permission $permission)
     {
         if ($user->hasPermissionTo($permission)) {
             $user->revokePermissionTo($permission);
-            return back()->with('message', 'Permission revoked.');
+            return back()->with('message', 'مجوز لغو شد.');
         }
-        return back()->with('message', 'Permission does not exists.');
+        return back()->with('message', 'مجوز وجود تدارد.');
     }
 
     public function destroy(User $user)
     {
         if ($user->hasRole('admin')) {
-            return back()->with('message', 'you are admin.');
+            return back()->with('message', 'شما ادمین هستید.');
         }
         $user->delete();
 
-        return back()->with('message', 'User deleted.');
+        return back()->with('message', 'کاربر حذف شد.');
     }
 }
