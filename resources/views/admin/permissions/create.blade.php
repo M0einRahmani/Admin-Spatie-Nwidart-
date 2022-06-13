@@ -7,7 +7,7 @@
                     <a href="{{ route('admin.permissions.index') }}" class="px-4 py-2 bg-green-700 hover:bg-green-500 text-white text-slate-100 rounded-md">صفحه مجوزها</a>
                 </div>
                 <div class="flex flex-col">
-                    <div class="space-y-8 divide-y divide-gray-200 w-1/2 mt-10">
+                    <div class="space-y-8 divide-y divide-gray-200 w-1/2">
                         <form method="POST" action="{{ route('admin.permissions.store') }}">
                             @csrf
                             <div class="sm:col-span-6 mt-6 mb-6">
@@ -18,13 +18,13 @@
                                 @error('name') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
                             </div>
                             <div class="sm:col-span-6 pt-5">
-                                <button type="submit" class="px-4 py-2 mt-6 bg-blue-500 text-white hover:bg-blue-700 rounded-md">ثبت</button>
+                                <button type="submit" class="px-4 py-2 bg-blue-500 text-white hover:bg-blue-700 rounded-md">ثبت</button>
                             </div>
                         </form>
                     </div>
 
                 </div>
-
+            </div>
             </div>
         </div>
     </div>

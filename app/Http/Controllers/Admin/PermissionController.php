@@ -23,7 +23,7 @@ class PermissionController extends Controller
     {
         $validated = $request->validate(['name' => 'required']);
         Permission::create($validated);
-        return to_route('admin.permissions.index')->with('message', 'Permission created.');
+        return to_route('admin.permissions.index')->with('message', 'مجوز ایجاد شد.');
     }
 
     public function edit(Permission $permission)
@@ -36,30 +36,30 @@ class PermissionController extends Controller
     {
         $validated = $request->validate(['name' => 'required']);
         $permission->update($validated);
-        return to_route('admin.permissions.index')->with('message', 'Permission updated.');
+        return to_route('admin.permissions.index')->with('message', 'مجوز ویرایش شد..');
     }
 
     public function destroy(Permission $permission)
     {
         $permission->delete();
-        return back()->with('message', 'Permission deleted.');
+        return back()->with('message', 'مجوز حذف شد.');
     }
 
     public function assignRole(Request $request, Permission $permission)
     {
         if ($permission->hasRole($request->role)) {
-            return back()->with('message', 'Role exists.');
+            return back()->with('message', 'نقش وجود دارد.');
         }
         $permission->assignRole($request->role);
-        return back()->with('message', 'Role assigned.');
+        return back()->with('message', 'نقش تخصیص داده شد.');
     }
 
     public function removeRole(Permission $permission, Role $role)
     {
         if ($permission->hasRole($role)) {
             $permission->removeRole($role);
-            return back()->with('message', 'Role removed.');
+            return back()->with('message', 'نقش حذف شد.');
         }
-        return back()->with('message', 'Role not exists.');
+        return back()->with('message', 'نقش وجود ندارد.');
     }
 }

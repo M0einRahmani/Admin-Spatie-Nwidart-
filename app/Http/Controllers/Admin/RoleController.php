@@ -48,18 +48,18 @@ class RoleController extends Controller
     public function givePermission(Request $request, Role $role)
     {
         if($role->hasPermissionTo($request->permission)){
-            return back()->with('message', 'Permission exists.');
+            return back()->with('message', 'مجوز قبلا به این نقش تخصیص داده شده است');
         }
         $role->givePermissionTo($request->permission);
-        return back()->with('message', 'Permission added.');
+        return back()->with('message', 'مجوز ثبت شد.');
     }
 
     public function revokePermission(Role $role, Permission $permission)
     {
         if($role->hasPermissionTo($permission)){
             $role->revokePermissionTo($permission);
-            return back()->with('message', 'Permission revoked.');
+            return back()->with('message', 'مجوز لغو شد!');
         }
-        return back()->with('message', 'Permission not exists.');
+        return back()->with('message', 'مجوز وجود ندارد!');
     }
 }
