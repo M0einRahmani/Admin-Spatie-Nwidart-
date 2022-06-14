@@ -47,5 +47,12 @@ Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group
     Route::delete('/users/{user}/permissions/{permission}', [UserController::class, 'revokePermission'])->name('users.permissions.revoke');
 });
 
+Route::get('/tests',function (){
+    $post = \App\Models\Video::first();
+    $post->tags()->create([
+        'name'=>'php'
+    ]);
+});
+
 
 require __DIR__.'/auth.php';
