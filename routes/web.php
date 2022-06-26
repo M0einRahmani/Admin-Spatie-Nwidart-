@@ -48,10 +48,7 @@ Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group
 });
 
 Route::get('/tests',function (){
-    $post = \App\Models\Video::first();
-    $post->tags()->create([
-        'name'=>'php'
-    ]);
+
 });
 
 

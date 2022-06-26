@@ -17,15 +17,6 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-        <style>
-            [dir="rtl"] select {
-                background-position: left 0.5rem center;
-                padding-left: 2.5rem;
-            }
-            body {
-                font-family: IRANYekanWeb;
-            }
-        </style>
     </head>
     <body class="font-sans antialiased" dir="rtl">
     @if (Session::has('message'))
